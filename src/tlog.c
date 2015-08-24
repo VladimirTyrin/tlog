@@ -94,7 +94,7 @@ void tlog_hex(int level, const char* str, void* d, int l)
 	int pos = sprintf(log_str, "%s: (%d) ", str, l);
 
 	for (int i=0; i<l; i++)
-		pos += sprintf(log_str+pos, "%02hhx:", p[i]);
+		pos += sprintf(log_str+pos, "0x%02x ", p[i]);
 
 	if (log_mode == TLOG_MODE_SYSLOG)
 		syslog(level, "%s %s",level_str[level], log_str);
